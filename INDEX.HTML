@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Project L.E.N.I. Baseline Survey</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--t9:#0F332D;--t7:#1B4B43;--m1:#E7F2EC;--m0:#F3F8F5;--cream:#FBF9F2;--gold:#F2A93B;--coral:#E1573F;--ink:#1F2A28;--soft:#54615D;--line:#DCE7E1;--hf:'Baloo 2','Trebuchet MS',sans-serif;--bf:'Work Sans',system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:15px/1.5 var(--bf)}
+header{background:var(--t9);color:#fff;padding:14px 16px 0}
+.hw{max-width:900px;margin:auto}
+header h1{margin:0;font:700 1.35rem var(--hf)}header p{margin:0 0 10px;color:#b7d3ca;font-size:.8rem}
+nav{display:flex;gap:6px}
+nav button{border:0;background:transparent;color:#b7d3ca;padding:10px 16px;font:600 .9rem var(--bf);border-radius:10px 10px 0 0;cursor:pointer}
+nav button.on{background:var(--cream);color:var(--t7)}
+main{max-width:900px;margin:auto;padding:16px}
+h2{font:700 1.4rem var(--hf);color:var(--t7);margin:6px 0}
+h3{font:700 1.1rem var(--hf);color:var(--t7);margin:22px 0 6px}
+h4.dom{margin:18px 0 6px;padding:6px 12px;background:var(--t7);color:#fff;border-radius:10px;font:600 .9rem var(--bf)}
+.sub{color:var(--soft);font-size:.88rem;margin:4px 0 10px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 16px;box-shadow:0 10px 24px -14px rgba(15,51,45,.3)}
+.pick{display:grid;gap:12px;margin-top:14px}
+@media(min-width:640px){.pick{grid-template-columns:repeat(3,1fr)}}
+.pick button{text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:18px;padding:16px;cursor:pointer;font:inherit}
+.pick button:hover{border-color:var(--gold)}
+.pick b{display:block;font:700 1.2rem var(--hf);color:var(--t7)}.pick span{color:var(--soft);font-size:.85rem}
+label.f{display:block;font-weight:600;margin:10px 0 3px;font-size:.88rem}
+input[type=text],input[type=date],input[type=password],select,textarea{width:100%;padding:10px;border:1.5px solid var(--line);border-radius:12px;font:inherit;background:var(--m0)}
+.it{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin:8px 0}
+.it p{margin:0 0 8px}
+.sc{display:flex;gap:6px}
+.sc input,.yn input{position:absolute;opacity:0;pointer-events:none}
+.sc label{flex:1;text-align:center;border:1.5px solid var(--line);border-radius:12px;padding:6px 2px;cursor:pointer;background:var(--m0);line-height:1.2}
+.sc label b{display:block;font-size:1.05rem}.sc label small{font-size:.65rem;color:var(--soft)}
+.sc input:checked+label{background:var(--t7);color:#fff;border-color:var(--t7)}.sc input:checked+label small{color:#d4e8e1}
+.yn{display:flex;gap:6px;flex-wrap:wrap}
+.yn label{border:1.5px solid var(--line);border-radius:999px;padding:7px 16px;cursor:pointer;background:var(--m0)}
+.yn input:checked+label{background:var(--gold);border-color:var(--gold);font-weight:600}
+.btn{border:0;border-radius:999px;padding:11px 22px;background:var(--t7);color:#fff;font:600 .95rem var(--bf);cursor:pointer;margin:6px 6px 0 0}
+.btn.g{background:var(--gold);color:#3A2506}.btn.o{background:#fff;color:var(--t7);border:1.5px solid var(--t7)}.btn.d{background:#fff;color:#b8402c;border:1.5px solid #f0bdb0}
+.bd{display:inline-block;color:#fff;border-radius:99px;padding:2px 10px;font-size:.75rem;font-weight:600;white-space:nowrap}
+.big{font:700 2.4rem var(--hf);color:var(--t7);line-height:1}
+.row{display:grid;grid-template-columns:minmax(120px,210px) 1fr 120px;gap:10px;align-items:center;margin:8px 0}
+.bar{height:12px;background:var(--m1);border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:var(--t7)}
+.tbl{overflow-x:auto;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:.85rem;background:#fff;border-radius:12px}
+th,td{padding:8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--m1);color:var(--t7);white-space:nowrap}
+.flag{color:#b8402c;font-size:.78rem;margin:2px 0}
+.chips{display:flex;gap:6px;margin:10px 0;flex-wrap:wrap}
+.chips button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;cursor:pointer;font:600 .85rem var(--bf);color:var(--soft)}
+.chips button.on{background:var(--t7);color:#fff;border-color:var(--t7)}
+.note{background:var(--m1);border-radius:12px;padding:10px 14px;font-size:.84rem;color:var(--soft);margin-top:12px}
+.leg td{padding:5px 8px}
+.sb{font:600 .65rem var(--bf);background:rgba(255,255,255,.16);border-radius:99px;padding:3px 10px;vertical-align:middle;margin-left:8px}
+#sn{margin-left:auto;border:1.5px solid var(--t7);background:#fff;color:var(--t7);border-radius:999px;padding:7px 14px;cursor:pointer;font:600 .85rem var(--bf)}
+@media print{header,.chips,.btn,.noprint{display:none!important}body{background:#fff}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+<header><div class="hw"><h1>Project L.E.N.I. <span id="sb" class="sb"></span></h1><p>Baseline School Safety and Learner Well-Being Assessment &middot; E.P. Borja High School</p>
+<nav><button id="n1" class="on">Take survey</button><button id="n2">Results</button></nav></div></header>
+<main id="app"></main>
+
+<script>
+const SERVER_URL='https://script.google.com/macros/s/AKfycbzBrL4ubGZhXP4FzBHkwWn6z4RJMVCaTuNQw71cgwDdtfM4_rJtfIux6O6m_dBXN5yamA/exec'; /* Paste your Google Apps Script web app URL here (see SETUP.md). Empty = local-only mode. */
+const PASS='leni2026'; /* Local-only mode passcode. When SERVER_URL is set, the admin key is ADMIN_KEY inside the Apps Script. */
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const DN={PS:'Physical Safety',LRP:'Learner Rights and Protection',E:'Encouraged',N:'Nurtured',I:'Involved'};
+const AB=['SA','A','N','D','SD'];
+const mk=(d,a)=>a.map(t=>({d,t}));
+const today=()=>new Date().toISOString().slice(0,10);
+const SV={
+student:{nm:'Learner',pre:'STU',title:"Learner's Survey Form (Annex 1.1)",
+ intro:'Your honest answers will help the school plan actions under Project L.E.N.I. All responses are confidential and used for program planning only. There is no right or wrong answer.',
+ prof:[{k:'grade',l:'Grade Level / Section',t:'text'},{k:'sex',l:'Sex',t:'select',o:['Male','Female']},{k:'date',l:'Date Administered',t:'date'}],
+ items:[...mk('PS',['I feel physically safe inside the school campus (classrooms, hallways, comfort rooms, playground).','I feel safe going to and from school.','The school has clear and visible rules on safety and proper conduct.','I know what to do and where to go in case of an emergency (fire, earthquake, intruder).','There are teachers or personnel visibly monitoring common areas during breaks.']),
+ ...mk('LRP',['I know where and to whom I can report bullying, harassment, or abuse in school.','I am confident that reported incidents will be acted upon fairly and promptly.','I feel respected regardless of my sex, gender, religion, ethnicity, or economic status.','I have not personally experienced bullying, harassment, or violence in school this school year.','I have not witnessed bullying, harassment, or violence happening to a classmate this school year.']),
+ ...mk('E',['My teachers recognize and appreciate my efforts and achievements.','I feel motivated and excited to attend school and participate in class.','I am encouraged to try again and improve when I make mistakes.','I receive helpful feedback that guides me to do better.']),
+ ...mk('N',['I feel emotionally supported by my teachers and school staff.','I know I can approach the guidance counselor or a trusted teacher when I have a problem.','The school provides support for learners with special needs or difficult circumstances.','I feel a sense of belonging in my school and classroom.']),
+ ...mk('I',['I am given opportunities to voice my opinions and suggestions in school activities.','I take part in decisions that affect my class or school (e.g., class rules, projects, events).','My parents/guardians are informed about and involved in school activities.','I feel that learners, teachers, and parents work together to keep our school safe.'])],
+ yn:[{k:'bully',l:'Have you experienced any form of bullying, harassment, or violence in school this school year?',o:['Yes','No']},{k:'trust',l:'Do you know an adult in school you trust and can approach if you feel unsafe?',o:['Yes','No']},{k:'talk',l:'If you answered Yes to experiencing bullying, harassment, or violence, would you like to talk to the Guidance Counselor or LRP Advocate?',o:['Yes','No','Prefer not to say']}],
+ cm:'Suggestions to make our school safer and more encouraging (optional)'},
+parent:{nm:'Parent / Guardian',pre:'PAR',title:'Parent / Guardian Survey Form (Annex 1.3)',
+ intro:'Your feedback supports DepEd Order No. 006, s. 2026 and Project L.E.N.I. Responses are confidential and used for program planning only.',
+ prof:[{k:'child',l:'Name of Child / Grade Level',t:'text'},{k:'rel',l:'Relationship to Learner',t:'select',o:['Parent','Guardian','Other']},{k:'date',l:'Date Administered',t:'date'}],
+ items:[{d:'PS',t:'My child feels safe attending this school.'},{d:'I',t:'The school communicates clearly with parents about safety policies and procedures.'},{d:'LRP',t:"I know who to contact in school if I have a concern about my child's safety or well-being."},{d:'E',t:"The school recognizes and encourages my child's efforts and achievements."},{d:'I',t:'I am given opportunities to participate in school activities and decision-making (e.g., PTA).'},{d:'I',t:"I am aware of DepEd Order No. 006, s. 2026 and the school's Project L.E.N.I. initiative."}],
+ yn:[],cm:'Suggestions or concerns you would like the school to address (optional)'},
+teacher:{nm:'Teacher / Personnel',pre:'TCH',title:'Teacher / School Personnel Survey Form (Annex 1.2)',
+ intro:"This form gathers baseline information on the school's implementation of DepEd Order No. 006, s. 2026 and Project L.E.N.I. Responses are confidential.",
+ prof:[{k:'pos',l:'Position / Designation',t:'text'},{k:'yrs',l:'Number of Years in Service',t:'text'},{k:'date',l:'Date Administered',t:'date'}],
+ items:[{d:'LRP',t:'The school has clear, written procedures for responding to Learner Rights and Protection (LRP) concerns.'},{d:'LRP',t:'I have been oriented on DepEd Order No. 006, s. 2026 (Guidelines on Ensuring a Safe and Motivating Learning Environment).'},{d:'LRP',t:'I know how to identify, document, and refer LRP concerns such as bullying and gender-based violence.'},{d:'PS',t:'The school regularly conducts safety inspections and drills.'},{d:'E',t:'I use positive discipline and recognition strategies to motivate learners.'},{d:'I',t:'There is an active and functional feedback/complaint mechanism for learners and parents.'},{d:'N',t:'I feel supported by school leadership when handling learner safety or protection concerns.'}],
+ yn:[],cm:'Comments/observations on school safety, learner protection, and well-being (optional)'}
+};
+/* Scoring guide bands: [min, label, color, meaning] */
+const B=[[4.21,'Very High','#1b7a3d','The domain is a clear strength; sustain current practices.'],[3.41,'High','#4c9a52','Generally positive; continue to strengthen and monitor.'],[2.61,'Moderate','#d6871e','Needs targeted improvement and closer monitoring.'],[1.81,'Low','#e1573f','Requires priority action and intervention.'],[1,'Very Low','#a3261e','Requires immediate intervention and reporting to the School Head/SDO.']];
+const rg=['4.21 - 5.00','3.41 - 4.20','2.61 - 3.40','1.81 - 2.60','1.00 - 1.80'];
+const band=a=>{a=Math.round(a*100)/100;return B.find(b=>a>=b[0])||B[4]};
+const f2=a=>a==null?'-':a.toFixed(2);
+const bd=a=>{if(a==null)return'-';const b=band(a);return`<span class="bd" style="background:${b[2]}">${b[1]}</span>`};
+const db={get(){try{return JSON.parse(localStorage.getItem('leni_survey_v1'))||[]}catch(e){return[]}},set(v){try{localStorage.setItem('leni_survey_v1',JSON.stringify(v))}catch(e){alert('Could not save. Browser storage is blocked.')}}};
+
+const hasSrv=()=>SERVER_URL.indexOf('http')===0;
+function badge(st){const e=$('#sb');if(e)e.textContent={local:'Local only',syncing:'Syncing...',online:'Synced',error:'Sync error'}[st]||''}
+async function srv(b){if(!hasSrv())return;try{await fetch(SERVER_URL,{method:'POST',body:JSON.stringify({...b,key})})}catch(e){}}
+async function pushPending(){if(!hasSrv())return;const all=db.get();let ch=0;
+ for(const r of all){if(r.sy)continue;try{const x=await fetch(SERVER_URL,{method:'POST',body:JSON.stringify({action:'upsert',rec:{...r,sy:undefined}})});const j=await x.json();if(j.ok){r.sy=1;ch=1}}catch(e){}}
+ if(ch)db.set(all)}
+async function pull(k){if(!hasSrv()){badge('local');return true}
+ badge('syncing');KEYERR='';
+ try{await pushPending();const res=await fetch(SERVER_URL+'?action=list&key='+encodeURIComponent(k||''));const j=await res.json();
+  if(!j.ok){KEYERR=j.error==='auth'?'Wrong passcode.':'Server error.';badge('error');return false}
+  const m=new Map(db.get().map(r=>[r.id,r]));j.records.forEach(x=>m.set(x.id,{...x,sy:1}));
+  const sid=new Set(j.records.map(r=>r.id));
+  db.set([...m.values()].filter(r=>!r.sy||sid.has(r.id)));badge('online');return true}
+ catch(e){badge('error');KEYERR='Could not reach the server. Check your internet connection.';return false}}
+/* Consolidated, numbered list: STU-001, PAR-001, TCH-001 ... in order of submission */
+function numbered(l){const c={};return l.slice().sort((a,b)=>a.ts<b.ts?-1:1).map(r=>{c[r.type]=(c[r.type]||0)+1;return{...r,no:SV[r.type].pre+'-'+String(c[r.type]).padStart(3,'0')}})}
+const ROWS=()=>numbered(db.get());
+const pfs=r=>SV[r.type].prof.filter(f=>f.k!=='date').map(f=>r.p[f.k]).filter(Boolean).join(' / ');
+const sumRows=()=>Object.keys(SV).map(k=>{const rs=ROWS().filter(r=>r.type===k);return{k,rs,a:agg(rs)}}).filter(x=>x.rs.length);
+
+/* Score one respondent: Average = total of item scores / items answered */
+function calc(r){const S=SV[r.type],dom={},flags=[];let t=0,n=0;
+ S.items.forEach((it,i)=>{const v=r.a[i];if(!v)return;const d=dom[it.d]=dom[it.d]||{s:0,n:0};d.s+=v;d.n++;t+=v;n++;
+  if(it.d==='LRP'&&v<=2)flags.push('Low LRP rating ('+v+'): '+it.t)});
+ if(r.x&&r.x.bully==='Yes')flags.push('Reported experiencing bullying, harassment, or violence');
+ if(r.x&&r.x.talk==='Yes')flags.push('Wants to talk to the Guidance Counselor / LRP Advocate');
+ return{avg:n?t/n:null,n,dom,flags}}
+function agg(rs){const d={};let t=0,n=0,fl=0;rs.forEach(r=>{const c=calc(r);if(c.flags.length)fl++;for(const k in c.dom){const x=d[k]=d[k]||{s:0,n:0};x.s+=c.dom[k].s;x.n+=c.dom[k].n;t+=c.dom[k].s;n+=c.dom[k].n}});return{d,avg:n?t/n:null,fl}}
+
+const app=$('#app');let cur='student',auth=false,rt='student',key='',KEYERR='';
+function tab(i){$('#n1').className=i==1?'on':'';$('#n2').className=i==2?'on':''}
+$('#n1').onclick=()=>{tab(1);home()};$('#n2').onclick=()=>{tab(2);results()};
+
+function home(){app.innerHTML=`<h2>Choose a survey</h2><p class="sub">Select who is answering. Each respondent completes one form, then passes the device to the next.</p><div class="pick">${Object.keys(SV).map(k=>`<button data-k="${k}"><b>${SV[k].nm}</b><span>${SV[k].items.length} items${SV[k].yn.length?' + 3 questions':''}</span></button>`).join('')}</div>`;
+ app.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>form(b.dataset.k))}
+
+function fld(f){const id='p_'+f.k;let c;
+ if(f.t==='select')c=`<select id="${id}"><option value="">Select</option>${f.o.map(o=>`<option>${o}</option>`).join('')}</select>`;
+ else c=`<input id="${id}" type="${f.t}" ${f.t==='date'?`value="${today()}"`:''}>`;
+ return`<label class="f" for="${id}">${f.l}</label>${c}`}
+
+function form(type){cur=type;const S=SV[type];let h=`<h2>${S.title}</h2><p class="sub">${S.intro}</p><form id="f"><h3>Part I. Respondent Profile</h3><div class="card"><p style="margin:0">School: <b>E.P. BORJA HIGH SCHOOL</b></p>${S.prof.map(fld).join('')}</div>
+<h3>Part II. Assessment Items</h3><p class="sub">Scale: 5 = Strongly Agree (SA) &middot; 4 = Agree (A) &middot; 3 = Neutral (N) &middot; 2 = Disagree (D) &middot; 1 = Strongly Disagree (SD)</p>`;
+ let last='',c=0;
+ S.items.forEach((it,i)=>{if(type==='student'&&it.d!==last){h+=`<h4 class="dom">${DN[it.d]}</h4>`;c=0}last=it.d;c++;
+  h+=`<div class="it"><p>${type==='student'?c:i+1}. ${esc(it.t)}</p><div class="sc">${[5,4,3,2,1].map(v=>`<input type="radio" name="q${i}" id="q${i}_${v}" value="${v}"><label for="q${i}_${v}"><b>${v}</b><small>${AB[5-v]}</small></label>`).join('')}</div></div>`});
+ if(S.yn.length){h+='<h3>Part III. Additional Questions</h3>';S.yn.forEach(q=>{h+=`<div class="it"><p>${q.l}</p><div class="yn">${q.o.map((o,j)=>`<input type="radio" name="x_${q.k}" id="x_${q.k}${j}" value="${o}"><label for="x_${q.k}${j}">${o}</label>`).join('')}</div></div>`})}
+ h+=`<label class="f">${S.cm}</label><textarea id="cm" rows="3"></textarea><button class="btn g" type="submit">Submit survey</button><button class="btn o" type="button" id="bk">Back</button></form>`;
+ app.innerHTML=h;scrollTo(0,0);$('#bk').onclick=home;
+ $('#f').onsubmit=e=>{e.preventDefault();const a=S.items.map((_,i)=>{const q=document.querySelector(`input[name=q${i}]:checked`);return q?+q.value:0});
+  if(!a.some(Boolean))return alert('Please answer at least one item.');
+  const miss=a.filter(v=>!v).length;if(miss&&!confirm(miss+' item(s) are unanswered and will not be counted. Submit anyway?'))return;
+  const p={};S.prof.forEach(f=>p[f.k]=$('#p_'+f.k).value.trim());
+  const x={};S.yn.forEach(q=>{const r=document.querySelector(`input[name=x_${q.k}]:checked`);x[q.k]=r?r.value:''});
+  const all=db.get();all.push({id:S.pre+'-'+Date.now().toString(36).toUpperCase()+Math.random().toString(36).slice(2,5).toUpperCase(),type,ts:new Date().toISOString(),p,a,x,cm:$('#cm').value.trim()});db.set(all);thanks();pushPending().then(()=>hasSrv()&&badge(db.get().some(r=>!r.sy)?'error':'online'))}}
+
+function thanks(){app.innerHTML=`<div class="card" style="text-align:center;padding:30px"><h2>Thank you!</h2><p>Your responses were saved. They are confidential and used for program planning only.</p><button class="btn g" id="nx">Next respondent</button><button class="btn o" id="hm">Choose another survey</button></div>`;
+ $('#nx').onclick=()=>form(cur);$('#hm').onclick=home}
+
+function results(){
+ if(!auth){app.innerHTML=`<h2>Results</h2><div class="card"><label class="f">Enter the passcode to view results</label><input type="password" id="pw"><button class="btn" id="go">Unlock</button></div>`;
+  $('#go').onclick=async()=>{const k=$('#pw').value;if(hasSrv()){const ok=await pull(k);if(!ok)return alert(KEYERR||'Could not unlock.');key=k;auth=true;results()}else if(k===PASS){auth=true;results()}else alert('Wrong passcode.')};$('#pw').onkeydown=e=>{if(e.key==='Enter')$('#go').click()};return}
+ const all=numbered(db.get()),rs=all.filter(r=>r.type===rt),S=SV[rt],a=agg(rs);
+ let h=`<div class="chips">${Object.keys(SV).map(k=>`<button data-t="${k}" class="${k===rt?'on':''}">${SV[k].nm} (${all.filter(r=>r.type===k).length})</button>`).join('')}<button id="sn" class="noprint">&#8635; Sync now</button></div>`;
+ if(!rs.length){app.innerHTML=h+'<div class="card">No responses yet for this survey.</div>';bindRes();return}
+ const doms=Object.keys(DN).filter(k=>a.d[k]).map(k=>[k,a.d[k].s/a.d[k].n]);
+ const hi=[...doms].sort((x,y)=>y[1]-x[1]),lo=hi[hi.length-1],ob=band(a.avg);
+ h+=`<h2>${S.nm} survey summary</h2><div class="card"><div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap"><div><div class="big">${f2(a.avg)}</div><small>overall average &middot; ${rs.length} respondent(s)</small></div><div>${bd(a.avg)}</div></div>`;
+ doms.forEach(([k,v])=>h+=`<div class="row"><span>${DN[k]}</span><div class="bar"><i style="width:${v/5*100}%"></i></div><span><b>${f2(v)}</b> ${bd(v)}</span></div>`);
+ h+=`</div><h3>Interpretation</h3><div class="card"><p style="margin-top:0">The overall average score of <b>${f2(a.avg)}</b> is rated <b>${ob[1]}</b>: ${ob[3]}</p>`;
+ if(doms.length>1)h+=`<p>The strongest domain is <b>${DN[hi[0][0]]}</b> (${f2(hi[0][1])}, ${band(hi[0][1])[1]}). The lowest is <b>${DN[lo[0]]}</b> (${f2(lo[1])}, ${band(lo[1])[1]}): ${band(lo[1])[3]}</p>`;
+ doms.filter(d=>band(d[1])[1]==='Low'||band(d[1])[1]==='Very Low').forEach(d=>h+=`<p class="flag">Priority: ${DN[d[0]]} is ${band(d[1])[1]}. ${band(d[1])[3]}</p>`);
+ h+=a.fl?`<p class="flag"><b>${a.fl} respondent(s)</b> flagged for immediate follow-up by the Guidance Designate / LRP Advocate (see table).</p>`:'<p>No respondent was flagged for immediate follow-up.</p>';
+ h+=`</div><h3>Score per respondent</h3><div class="tbl"><table><thead><tr><th>ID</th><th>Profile</th><th>Overall</th><th>Interpretation</th><th>Domain averages</th><th>Follow-up flags</th><th class="noprint"></th></tr></thead><tbody>`;
+ rs.forEach(r=>{const c=calc(r),pf=S.prof.filter(f=>f.k!=='date').map(f=>r.p[f.k]).filter(Boolean).join(' / ');
+  h+=`<tr><td>${r.no}<br><small>${(r.p.date||'').slice(0,10)}</small></td><td>${esc(pf)||'-'}</td><td><b>${f2(c.avg)}</b><br><small>${c.n}/${S.items.length} items</small></td><td>${bd(c.avg)}</td><td>${Object.keys(c.dom).map(k=>`<div><small>${DN[k]}</small>: <b>${f2(c.dom[k].s/c.dom[k].n)}</b></div>`).join('')}</td><td>${c.flags.length?c.flags.map(x=>`<div class="flag">${esc(x)}</div>`).join(''):'-'}</td><td class="noprint"><button class="btn d" style="padding:4px 10px;margin:0" data-del="${r.id}">Delete</button></td></tr>`});
+ h+=`</tbody></table></div><div class="noprint"><button class="btn" id="xl">Export Excel (all surveys)</button><button class="btn g" id="pdf">Export PDF report</button><button class="btn o" id="csv">Export CSV</button><button class="btn o" id="pr">Print</button><button class="btn d" id="clr">Delete all ${S.nm} responses</button></div>
+<h3>Scoring guide</h3><table class="leg"><tbody>${B.map((b,i)=>`<tr><td>${rg[i]}</td><td>${bd(b[0])}</td><td>${b[3]}</td></tr>`).join('')}</tbody></table>
+<div class="note">Average Score = total of all item scores &divide; total number of items answered. Any low (2) or very low (1) rating on a Learner Rights and Protection item, any "Yes" to experiencing bullying, harassment, or violence, or a request to talk to the counselor is flagged regardless of the average. Parent and teacher items are grouped into domains by the app (see the <code>d</code> field of each item), because the printed forms do not label them.<br>${hasSrv()?'Responses from all devices are consolidated in the shared Google Sheet. Press Sync now to refresh.':'Local-only mode: responses are stored on this device only. Connect the shared server (SETUP.md) to consolidate all devices.'} Exports cover all three surveys.</div>`;
+ app.innerHTML=h;bindRes(rs,S)}
+
+function bindRes(rs,S){app.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{rt=b.dataset.t;results()});
+ app.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{if(confirm('Delete this response?')){await srv({action:'delete',id:b.dataset.del});db.set(db.get().filter(r=>r.id!==b.dataset.del));results()}});
+ $('#sn').onclick=async()=>{await pull(key);results()};
+ if(!rs)return;
+ $('#pr').onclick=()=>print();
+ $('#clr').onclick=async()=>{if(confirm('Delete ALL '+S.nm+' responses? This cannot be undone.')){await srv({action:'deleteType',type:rt});db.set(db.get().filter(r=>r.type!==rt));results()}};
+ $('#xl').onclick=xlsx;$('#pdf').onclick=pdf;$('#csv').onclick=csv}
+
+function story(S,rs,a){const D=Object.keys(DN).filter(k=>a.d[k]).map(k=>[k,a.d[k].s/a.d[k].n]).sort((x,y)=>y[1]-x[1]),ob=band(a.avg);
+ let t=`Based on ${rs.length} respondent(s), the overall average score is ${f2(a.avg)}, rated ${ob[1]}. ${ob[3]}`;
+ if(D.length>1){const lo=D[D.length-1];t+=` The strongest domain is ${DN[D[0][0]]} (${f2(D[0][1])}). The lowest domain is ${DN[lo[0]]} (${f2(lo[1])}, ${band(lo[1])[1]}): ${band(lo[1])[3]}`}
+ return t+(a.fl?` ${a.fl} respondent(s) were flagged for immediate follow-up by the Guidance Designate / LRP Advocate.`:' No respondent was flagged for immediate follow-up.')}
+
+function save(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click()}
+
+function xlsx(){if(!window.XLSX)return alert('Excel library not loaded. Check your internet connection.');
+ const sm=sumRows();if(!sm.length)return alert('No responses to export.');
+ const D=Object.keys(DN),wb=XLSX.utils.book_new(),add=(n,aoa,w)=>{const ws=XLSX.utils.aoa_to_sheet(aoa);ws['!cols']=w.map(x=>({wch:x}));XLSX.utils.book_append_sheet(wb,ws,n)};
+ add('Summary',[['E.P. BORJA HIGH SCHOOL'],['Project L.E.N.I. Baseline School Safety and Learner Well-Being Assessment'],['Consolidated Results (DepEd Order No. 006, s. 2026)'],['Generated: '+new Date().toLocaleString()],[],
+  ['Survey','Respondents','Overall Average','Interpretation',...D.flatMap(k=>[DN[k]+' Avg',DN[k]+' Rating']),'Flagged for Follow-up'],
+  ...sm.map(({k,rs,a})=>[SV[k].nm,rs.length,+f2(a.avg),band(a.avg)[1],...D.flatMap(x=>a.d[x]?[+f2(a.d[x].s/a.d[x].n),band(a.d[x].s/a.d[x].n)[1]]:['','']),a.fl])],[30,13,15,16,...D.flatMap(()=>[16,16]),20]);
+ add('Respondents',[['No.','Survey','Date Administered','Profile','Items Answered','Overall Average','Interpretation',...D.map(k=>DN[k]),'Follow-up Flags','Comment'],
+  ...ROWS().map(r=>{const c=calc(r);return[r.no,SV[r.type].nm,r.p.date||'',pfs(r),c.n+'/'+r.a.length,c.avg==null?'':+f2(c.avg),c.avg==null?'':band(c.avg)[1],...D.map(k=>c.dom[k]?+f2(c.dom[k].s/c.dom[k].n):''),c.flags.join(' | '),r.cm]})],[12,18,14,30,12,12,14,...D.map(()=>16),50,40]);
+ sm.forEach(({k,rs})=>{const S=SV[k];add(S.nm.split(' ')[0]+' Items',[['No.','Profile',...S.items.map((it,i)=>(i+1)+'. ['+DN[it.d]+'] '+it.t),...S.yn.map(q=>q.l)],...rs.map(r=>[r.no,pfs(r),...r.a.map(v=>v||''),...S.yn.map(q=>(r.x||{})[q.k]||'')])],[12,28,...S.items.map(()=>24),...S.yn.map(()=>24)])});
+ add('Follow-up Flags',[['No.','Survey','Profile','Reason for follow-up'],...ROWS().flatMap(r=>calc(r).flags.map(f=>[r.no,SV[r.type].nm,pfs(r),f]))],[12,18,30,90]);
+ add('Scoring Guide',[['Average Score','Interpretation','Meaning'],...B.map((b,i)=>[rg[i],b[1],b[3]]),[],['Average Score = total of all item scores / total number of items answered']],[16,16,80]);
+ XLSX.writeFile(wb,'LENI-Consolidated-Survey-Results-'+today()+'.xlsx')}
+
+function csv(){const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"',D=Object.keys(DN);
+ const rows=[['No.','Survey','Submitted','Profile','Overall Average','Interpretation',...D.map(k=>DN[k]),'Follow-up flags','Item scores','Comment'].map(q).join(',')];
+ ROWS().forEach(r=>{const c=calc(r);rows.push([r.no,SV[r.type].nm,r.ts,pfs(r),f2(c.avg),c.avg==null?'':band(c.avg)[1],...D.map(k=>c.dom[k]?f2(c.dom[k].s/c.dom[k].n):''),c.flags.join(' | '),r.a.map((v,i)=>(i+1)+':'+v).join(' '),r.cm].map(q).join(','))});
+ save(new Blob(['\ufeff'+rows.join('\n')],{type:'text/csv'}),'leni-survey-results-'+today()+'.csv')}
+
+function pdf(){const J=window.jspdf;if(!J||!J.jsPDF)return alert('PDF library not loaded. Check your internet connection.');
+ const sm=sumRows();if(!sm.length)return alert('No responses to export.');
+ const doc=new J.jsPDF({unit:'mm',format:'a4'}),W=210,M=14,D=Object.keys(DN);let y=16;
+ const need=h=>{if(y+h>278){doc.addPage();y=16}};
+ const H=(t,z)=>{need(12);doc.setFont('helvetica','bold');doc.setFontSize(z);doc.setTextColor(27,75,67);doc.text(t,M,y);y+=z*0.5+1.5};
+ const P=t=>{doc.setFont('helvetica','normal');doc.setFontSize(9.5);doc.setTextColor(30,30,30);doc.splitTextToSize(t,W-2*M).forEach(l=>{need(5);doc.text(l,M,y);y+=4.6});y+=2};
+ const T=(head,body)=>{doc.autoTable({startY:y,head:[head],body,margin:{left:M,right:M},styles:{fontSize:8,cellPadding:1.6},headStyles:{fillColor:[27,75,67]}});y=doc.lastAutoTable.finalY+5};
+ H('E.P. BORJA HIGH SCHOOL',16);H('Project L.E.N.I. Baseline School Safety and Learner Well-Being Assessment',11);
+ P('CONSOLIDATED RESULTS REPORT  |  In line with DepEd Order No. 006, s. 2026  |  Generated: '+new Date().toLocaleString());
+ H('I. Summary of Respondents and Scores',12);
+ T(['Survey','Respondents','Overall Average','Interpretation','Flagged for Follow-up'],sm.map(({k,rs,a})=>[SV[k].nm,rs.length,f2(a.avg),band(a.avg)[1],a.fl]));
+ const rn=['II','III','IV'];
+ sm.forEach(({k,rs,a},i)=>{const S=SV[k];doc.addPage();y=16;
+  H(rn[i]+'. '+S.nm+' Survey ('+rs.length+' respondents)',13);
+  T(['Domain','Average','Rating','Meaning'],D.filter(x=>a.d[x]).map(x=>{const v=a.d[x].s/a.d[x].n,b=band(v);return[DN[x],f2(v),b[1],b[3]]}));
+  H('Interpretation',10);P(story(S,rs,a));
+  H('Score per respondent',10);
+  T(['No.','Profile','Items','Overall','Rating',...D,'Flags'],rs.map(r=>{const c=calc(r);return[r.no,pfs(r),c.n+'/'+r.a.length,f2(c.avg),band(c.avg)[1],...D.map(x=>c.dom[x]?f2(c.dom[x].s/c.dom[x].n):'-'),c.flags.length||'-']}));
+  P('PS = Physical Safety; LRP = Learner Rights and Protection; E = Encouraged; N = Nurtured; I = Involved.');
+  const fl=rs.flatMap(r=>calc(r).flags.map(f=>[r.no,f]));
+  if(fl.length){H('Cases for immediate follow-up (Guidance Designate / LRP Advocate)',10);T(['No.','Reason'],fl)}});
+ H('Scoring and Interpretation Guide',12);
+ T(['Average Score','Interpretation','Meaning'],B.map((b,i)=>[rg[i],b[1],b[3]]));
+ P('Average Score = total of all item scores / total number of items answered. Responses are confidential and used for program planning only.');
+ need(30);y+=12;P('Prepared by: ______________________________        Noted by: ______________________________ (School Head)');
+ const n=doc.internal.getNumberOfPages();for(let p=1;p<=n;p++){doc.setPage(p);doc.setFontSize(8);doc.setTextColor(130);doc.text('Page '+p+' of '+n,W-M,291,{align:'right'})}
+ doc.save('LENI-Consolidated-Report-'+today()+'.pdf')}
+
+badge(hasSrv()?'syncing':'local');pushPending().then(()=>hasSrv()&&badge(db.get().some(r=>!r.sy)?'error':'online'));
+home();
+</script>
+</body>
+</html>
